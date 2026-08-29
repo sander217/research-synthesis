@@ -31,9 +31,9 @@ The work runs in five moves: find out who gave you this data and what it leaves 
 
 5. **Name the population behind the data.** Before anyone reads a pattern they need to know whose voice this is. A support channel holds only users with problems. An internal QA sweep holds only paths the tester chose to walk. A review page holds the delighted and the furious and nobody in between. Say who produced the input and what that skews, in a line near the top. This matters most when the data was produced by the same team that will read it, because a team's own testing reads like customer signal and is not.
 
-6. **End with decisions, not observations.** Every synthesis closes with actions sorted into: Do now / Test first / Watch. An action names what to change, why (link to pattern), and what evidence would prove it worked.
+6. **End with decisions, not observations.** Every synthesis closes with actions sorted into: Do now / Test first / Watch. An action names what to change, why (link to pattern), and what evidence would prove it worked. Write the change as the thing someone would see, not as the architecture word for it. "Converge generation status into a single source of truth" describes the shape of a fix; "the five screens that each work out whether a job is finished should read one field from the backend instead" is the fix. If a reader would have to ask what a phrase means, it is not an action yet.
 
-7. **Earn the space.** Everything above the Quote bank should read in one pass: for a handful of sources that is one page, and for a hundred it is still only as long as the patterns justify. The Quote bank is an appendix that grows with the input and does not count against length. When you are over, cut interpretations and merge overlapping patterns. Never cut evidence.
+7. **Earn the space.** Everything above the Quote bank should read in one pass: for a handful of sources that is one page, and for a hundred it is still only as long as the patterns justify. The Quote bank is an appendix that grows with the input and does not count against length. When you are over, cut interpretations and merge overlapping patterns. Never cut evidence. Cut the wind-up too: "it is worth noting that", "the real problem is not X but Y", "this line rewrites A into B" are throat-clearing that delays the point by a sentence each time. Start at the point.
 
 ## Workflow
 
@@ -43,6 +43,7 @@ Spend the first pass on what kind of corpus this is. It decides what one observa
 
 - **Shape.** Chat thread, transcript, tracker export, review dump. This sets the counting unit for principle 4 and the source-marker format.
 - **Who produced it.** Customers, internal QA, one loud channel, a sales team relaying secondhand? Write this down; it becomes the Sources line.
+- **What the team is measured on.** Ask, or infer from the data, the one or two numbers this team is judged by right now. Ranking against those beats ranking against a generic severity ladder, because "blocks the core loop" is true of half of everything and settles nothing. If a team says its numbers are reskin success rate and reskin speed, then every pattern owes an answer to "which of those does this move, and how much".
 - **What the corpus cannot contain.** A bug tracker holds almost no praise. A cancellation survey holds no happy customers. When a category is structurally absent, say so, because otherwise its absence reads as a finding. "No positive signal" and "this corpus cannot carry positive signal" are very different sentences.
 - **Triage, when the input is unfiltered.** A raw export mixes real signal with scheduling stubs, spec documents, and refactor tasks. Deciding what carries qualitative signal is the highest-leverage judgment in the whole job, so make it auditable: publish what you excluded, with counts and reasons, and let the reader overrule you.
 - **Metadata is evidence, in structured sources.** Status, priority, author, created date, time-in-state. Status changes the recommendation: a fix already staged needs the affected customer told, not the fix built again. A ticket sitting In Progress for three weeks is a signal about the team, not the product. Several closed items in one problem area, with the same complaint reappearing after them, is the clearest evidence you will get that the fixes were surface-only. Treat the tracker's own priority field as one input to severity rather than as severity itself; teams mark things Urgent for reasons that have nothing to do with user impact.
@@ -70,8 +71,9 @@ Not every line in a structured source is an observation. Specs, checklists, and 
 
 - Group observations that share a root cause, not a surface topic. "Checkout is slow" and "I gave up paying" belong together; "checkout is slow" and "checkout button is ugly" do not.
 - Name each pattern as a problem statement, not a topic. Bad: "Onboarding". Good: "Users cannot tell whether generation is still running or has failed." A pattern made of praise is the exception: name it as the claim it is ("The playable loading screen is working") and give it a severity of "positive" so nobody reads it as a defect.
+- The name has to survive the question "which one?". "Direction keeps getting overturned" fails it: the reader cannot picture anything and has to hunt through your evidence to find out what was overturned. "The preview-before-publish rule was reversed twice in two weeks" passes. Put the specific thing in the heading and let the evidence confirm it, rather than making the heading a category the reader has to unpack.
 - When several surface complaints turn out to share one root cause, say that plainly and say what happens if only the surfaces get fixed. That sentence is usually the most valuable line in the document: it is the difference between confirming the team's existing list and changing what they build.
-- Rank patterns by frequency x severity. Severity: does it block money, block the core loop, or just annoy? When a fix is already underway in the data, mark the pattern as such so the Actions section tracks it instead of proposing it again.
+- Rank by what moves the team's numbers. Sort patterns by which stated metric they move and by how much, and say plainly when one moves neither, because that is a useful answer and it is how things get dropped. Without a stated metric, fall back to frequency x severity, where severity asks whether the thing blocks money, blocks the core loop, or just annoys. When a fix is already underway in the data, mark the pattern so the Actions section tracks it instead of proposing it again.
 - A pattern with N=1 but severe (data loss, payment failure, churn statement) still makes the list, flagged as single-source.
 - One source can hold two observations belonging to different patterns. Cite it in both with the relevant part scoped, for example "(GAM-961, the status half)", and never silently drop the second one to keep the arithmetic tidy. Counting stays in the source's unit, so a ticket reporting three distinct faults still counts as one; note when a pattern leans on compound sources, because the items carrying three problems at once are usually the ones worth reading in full.
 
@@ -92,7 +94,7 @@ contain, the counting unit if it is not obvious, coverage gaps.]
 - [Third, one line]
 
 ## Patterns
-### 1. [Problem statement]  (N=x/y [unit] · [z] reporters · severity: blocks money / blocks core loop / annoyance [· fix already in flight])
+### 1. [Problem statement, naming the specific thing]  (N=x/y [unit] · [z] reporters · moves: [which team metric, or "neither"] · severity: blocks money / blocks core loop / annoyance [· fix already in flight])
 - FACT: [what was said/observed]
 - Evidence: "[verbatim quote]" (source)  ·  "[verbatim quote]" (source)
 - INTERPRETATION: [what it likely means; if this is one root cause behind several symptoms, say what a surface-only fix would leave behind]
@@ -101,8 +103,8 @@ contain, the counting unit if it is not obvious, coverage gaps.]
 ### 2. ...
 
 ## Actions
-**Do now** (evidence is sufficient)
-- [Change X because Pattern 1. Success looks like: metric/signal Y.]
+**Do now** (evidence is sufficient, ordered by effect on the team's metrics)
+- [The change, written as what someone would see. Why: Pattern 1. Success looks like: signal Y.]
 
 **Test first** (plausible but unproven)
 - [Prototype/experiment Z to validate Hypothesis. Decision criterion: ...]
