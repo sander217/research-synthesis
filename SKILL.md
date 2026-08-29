@@ -1,5 +1,5 @@
 ---
-name: research-synthesis
+name: research-synthesis-sander
 description: Turn raw qualitative input into a same-day, decision-ready synthesis. Use this skill whenever the user provides customer calls, interview transcripts (including messy auto-transcribed ones), support tickets, issue-tracker exports (Linear, Jira, GitHub, filtered or raw), Telegram/Slack feedback threads, app store reviews, UAT bug reports, survey open-ends, or session notes and wants to know what they mean or what to do about them. Trigger on phrases like "synthesize this", "what are users saying", "find the patterns", "summarize this call", "整理這些回饋", "這通電話的重點", "這兩週我們到底在面對什麼問題", or any time raw user/customer input is pasted or uploaded, even if the user only says "look at this". Do NOT use for quantitative-only data (metrics dashboards, funnels) with no verbatim text.
 ---
 

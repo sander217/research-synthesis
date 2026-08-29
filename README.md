@@ -1,4 +1,4 @@
-# research-synthesis
+# research-synthesis-sander
 
 An AI skill that turns raw qualitative input into a same-day, decision-ready synthesis. Drop in a customer call transcript, a batch of support tickets, or an unfiltered issue-tracker export; get back patterns, verbatim evidence, and recommended actions.
 
@@ -34,7 +34,7 @@ Most teams turn a customer call into a deck three weeks later, or into nothing. 
 
 Works with any agent runtime that supports skills (Claude Code, Claude.ai, Codex, or as a plain system prompt).
 
-1. Copy `SKILL.md` into your skills directory (for Claude Code: `.claude/skills/research-synthesis/SKILL.md`).
+1. Copy `SKILL.md` into your skills directory (for Claude Code: `.claude/skills/research-synthesis-sander/SKILL.md`). The name carries a suffix because Anthropic's `design` plugin ships a skill called `research-synthesis` and the two are easy to confuse in the command picker.
 2. Give the agent your raw input: transcript files, pasted tickets, exported chat threads. Messy auto-transcription (Notta, Otter, Zoom) is fine; the skill handles ASR garble without fabricating quotes. Unfiltered exports are fine too; triaging them is part of the job and the skill publishes what it dropped.
 3. Ask for a synthesis, or just paste the input. The skill triggers on raw qualitative data.
 
