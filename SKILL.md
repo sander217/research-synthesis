@@ -7,6 +7,18 @@ description: Turn raw qualitative input into a same-day, decision-ready synthesi
 
 Turn raw qualitative input into a synthesis a team can act on the same afternoon. The output is always: patterns, verbatim evidence, recommended actions. Never a book report.
 
+## What this is, in plain words
+
+Someone hands you a pile of complaints. The job is to notice that twenty complaints are really four problems, prove it with what people actually said, and tell the team which one to fix first.
+
+Everything below comes from three rules. No quote, no claim: if nobody said it, you cannot write it. Keep "what they said" and "what I think it means" in separate sentences. Count carefully, because one person complaining ten times is still one person.
+
+What matters most is how many people hit a thing, times how badly it hurts. Hurt has three levels: it stops them paying, it stops them doing the main thing, or it just annoys them.
+
+The work runs in five moves: find out who gave you this data and what it leaves out, pull every complaint and workaround and compliment out of it, group the ones that share an underlying cause, rank them, then close with what to do now, what to test, and what to watch.
+
+**Where this stops.** It reads words, so it cannot give you percentages of your users, cannot prove that one thing caused another, and cannot speak for anyone who never wrote in. Silence is not agreement, and ten angry messages are not a trend. When the input cannot answer the question, saying so and naming the data that would is the correct output, not a failure.
+
 ## Core principles
 
 1. **Evidence before interpretation.** Every pattern must be backed by verbatim quotes. If you cannot quote it, you cannot claim it.
