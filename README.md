@@ -1,12 +1,10 @@
 # research-synthesis-sander
 
-An AI skill that turns raw qualitative input into a same-day, decision-ready synthesis. Drop in a customer call transcript, a batch of support tickets, or an unfiltered issue-tracker export; get back patterns, verbatim evidence, and recommended actions.
+Customer feedback piles up faster than anyone can read it. This reads it for you. It tells you those twenty complaints are really four problems, and it shows you who said what and where, so you can check its work. Quotes stay exactly as written, typos and all. What I like most is that it doesn't bluff: one person complaining ten times counts once, your own QA team never gets mistaken for customers, and when the data can't answer the question it just says so. Then it tells you what to fix now, what to test, and what to just keep an eye on. I fed it 104 raw Linear tickets. It threw out 41 that had nothing in them, told me which ones it threw out, and found something I'd missed: four tickets we'd marked Done had quietly come back somewhere else five days later.
 
-Built so that anyone on a team, not just researchers or designers, can run customer input through the same standard and get the same quality of output.
+The point is that anyone on the team can run it, not just the people who do research for a living, and get the same quality back.
 
-## In plain words
-
-Someone hands you a pile of complaints. The job is to notice that twenty complaints are really four problems, prove it with what people actually said, and tell the team which one to fix first.
+## The rules it works by
 
 Three rules carry everything else. No quote, no claim: if nobody said it, it does not go in. Keep "what they said" and "what I think it means" in separate sentences. Count carefully, because one person complaining ten times is still one person.
 
