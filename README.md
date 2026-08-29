@@ -4,6 +4,16 @@ An AI skill that turns raw qualitative input into a same-day, decision-ready syn
 
 Built so that anyone on a team, not just researchers or designers, can run customer input through the same standard and get the same quality of output.
 
+## In plain words
+
+Someone hands you a pile of complaints. The job is to notice that twenty complaints are really four problems, prove it with what people actually said, and tell the team which one to fix first.
+
+Three rules carry everything else. No quote, no claim: if nobody said it, it does not go in. Keep "what they said" and "what I think it means" in separate sentences. Count carefully, because one person complaining ten times is still one person.
+
+Ranking is how many people hit a thing, times how badly it hurts. Hurt has three levels: it stops them paying, it stops them doing the main thing, or it just annoys them.
+
+**Where it stops.** It reads words, so it cannot give you percentages of your users, cannot prove one thing caused another, and cannot speak for anyone who never wrote in. Silence is not agreement, and ten angry messages are not a trend. When the input cannot answer the question, saying so and naming the data that would is the correct output.
+
 ## Why
 
 Most teams turn a customer call into a deck three weeks later, or into nothing. By then the decision it should have informed has already been made. This skill compresses that loop to the same afternoon: raw input in, actionable synthesis out, every claim backed by a verbatim quote anyone can check.
@@ -27,6 +37,14 @@ Works with any agent runtime that supports skills (Claude Code, Claude.ai, Codex
 1. Copy `SKILL.md` into your skills directory (for Claude Code: `.claude/skills/research-synthesis/SKILL.md`).
 2. Give the agent your raw input: transcript files, pasted tickets, exported chat threads. Messy auto-transcription (Notta, Otter, Zoom) is fine; the skill handles ASR garble without fabricating quotes. Unfiltered exports are fine too; triaging them is part of the job and the skill publishes what it dropped.
 3. Ask for a synthesis, or just paste the input. The skill triggers on raw qualitative data.
+
+### Getting better output
+
+- **Keep the source markers.** Names or handles, timestamps, ticket IDs. They become the audit trail, and a quote nobody can trace back is worth less than one they can.
+- **Do not pre-filter.** Deciding what counts as signal is part of the work, and the synthesis publishes what it dropped so you can overrule it. Filtering first hides your own assumptions inside the input.
+- **Say who these people are** when it is not obvious from the data: paying customers, trial users, your own QA team. It changes what the synthesis is allowed to claim.
+- **Say what decision is pending**, if there is one. Ranking against a real decision beats ranking in the abstract.
+- **Mixed languages are fine.** The synthesis is written in the dominant language and quotes stay in whatever language they were spoken in.
 
 ## Input types tested
 
