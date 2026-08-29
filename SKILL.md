@@ -73,13 +73,13 @@ Not every line in a structured source is an observation. Specs, checklists, and 
 - Name each pattern as a problem statement, not a topic. Bad: "Onboarding". Good: "Users cannot tell whether generation is still running or has failed." A pattern made of praise is the exception: name it as the claim it is ("The playable loading screen is working") and give it a severity of "positive" so nobody reads it as a defect.
 - The name has to survive the question "which one?". "Direction keeps getting overturned" fails it: the reader cannot picture anything and has to hunt through your evidence to find out what was overturned. "The preview-before-publish rule was reversed twice in two weeks" passes. Put the specific thing in the heading and let the evidence confirm it, rather than making the heading a category the reader has to unpack.
 - When several surface complaints turn out to share one root cause, say that plainly and say what happens if only the surfaces get fixed. That sentence is usually the most valuable line in the document: it is the difference between confirming the team's existing list and changing what they build.
-- Rank by what moves the team's numbers. Sort patterns by which stated metric they move and by how much, and say plainly when one moves neither, because that is a useful answer and it is how things get dropped. Without a stated metric, fall back to frequency x severity, where severity asks whether the thing blocks money, blocks the core loop, or just annoys. When a fix is already underway in the data, mark the pattern so the Actions section tracks it instead of proposing it again.
+- Rank by what moves the team's numbers. Sort patterns by which stated metric they move and by how much, and say plainly when one moves neither, because that is a useful answer and it is how things get dropped. Give the size as a number whenever the data holds one, and when it does not, say that and name the count that would settle it. "Strong effect on success rate" is a hedge wearing a finding's clothes; "49 of 84 assets timed out" is a finding, and "nobody records which path an image took, so the size of this is unknown" is an honest stand-in for one. Without a stated metric, fall back to frequency x severity, where severity asks whether the thing blocks money, blocks the core loop, or just annoys. When a fix is already underway in the data, mark the pattern so the Actions section tracks it instead of proposing it again.
 - A pattern with N=1 but severe (data loss, payment failure, churn statement) still makes the list, flagged as single-source.
 - One source can hold two observations belonging to different patterns. Cite it in both with the relevant part scoped, for example "(GAM-961, the status half)", and never silently drop the second one to keep the arithmetic tidy. Counting stays in the source's unit, so a ticket reporting three distinct faults still counts as one; note when a pattern leans on compound sources, because the items carrying three problems at once are usually the ones worth reading in full.
 
 ### Step 4: Write the synthesis
 
-Use this structure. The Sources and Excluded sections can be dropped when they would be empty, everything else stays.
+Use this structure. The Sources and Excluded sections can be dropped when they would be empty, everything else stays. Keep the bracket under each heading to four items so it stays scannable, and move cautions to their own line rather than growing the bracket.
 
 ```markdown
 # Synthesis: [source description] · [date]
@@ -94,7 +94,9 @@ contain, the counting unit if it is not obvious, coverage gaps.]
 - [Third, one line]
 
 ## Patterns
-### 1. [Problem statement, naming the specific thing]  (N=x/y [unit] · [z] reporters · moves: [which team metric, or "neither"] · severity: blocks money / blocks core loop / annoyance [· fix already in flight])
+### 1. [Problem statement, naming the specific thing]
+(N=x/y [unit] · [z] reporters · moves: [metric and how much, or "neither"] · severity: blocks money / blocks core loop / annoyance / moves neither)
+[Caution line, only when one applies: low sample N<5 · single source · fix already in flight (ticket)]
 - FACT: [what was said/observed]
 - Evidence: "[verbatim quote]" (source)  ·  "[verbatim quote]" (source)
 - INTERPRETATION: [what it likely means; if this is one root cause behind several symptoms, say what a surface-only fix would leave behind]
