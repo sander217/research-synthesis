@@ -33,7 +33,7 @@ The work runs in five moves: find out who gave you this data and what it leaves 
 
 6. **End with decisions, not observations.** Every synthesis closes with actions sorted into: Do now / Test first / Watch. An action names what to change, why (link to pattern), and what evidence would prove it worked. Write the change as the thing someone would see, not as the architecture word for it. "Converge generation status into a single source of truth" describes the shape of a fix; "the five screens that each work out whether a job is finished should read one field from the backend instead" is the fix. If a reader would have to ask what a phrase means, it is not an action yet. When the thing failing is unreliable by nature, a model, a third party, a network, a manual step, split the action in two: lowering the failure rate, and making failure visible and recoverable. They are different work, they usually have different owners, and the second is cheaper and far more certain than the first. A synthesis that only asks for a lower failure rate leaves people stranded on the failures that remain.
 
-7. **Earn the space.** Everything above the Quote bank should read in one pass: for a handful of sources that is one page, and for a hundred it is still only as long as the patterns justify. The Quote bank is an appendix that grows with the input and does not count against length. When you are over, cut interpretations and merge overlapping patterns. Never cut evidence. Cut the wind-up too: "it is worth noting that", "the real problem is not X but Y", "this line rewrites A into B" are throat-clearing that delays the point by a sentence each time. Start at the point.
+7. **Earn the space.** Everything above the Quote bank should read in one pass: for a handful of sources that is one page, and for a hundred it is still only as long as the patterns justify. The Quote bank is an appendix that grows with the input and does not count against length, but it is not a dumping ground: keep the quotes a sceptic would check to test a claim, and drop the fourth one corroborating something the first three already settled. Never cut a quote a claim rests on; freely cut the ones that only agree with it. When you are over, cut interpretations and merge overlapping patterns. Never cut evidence. Cut the wind-up too: "it is worth noting that", "the real problem is not X but Y", "this line rewrites A into B" are throat-clearing that delays the point by a sentence each time. Start at the point.
 
 ## Workflow
 
@@ -43,7 +43,7 @@ Spend the first pass on what kind of corpus this is. It decides what one observa
 
 - **Shape.** Chat thread, transcript, tracker export, review dump. This sets the counting unit for principle 4 and the source-marker format.
 - **Who produced it.** Customers, internal QA, one loud channel, a sales team relaying secondhand? Write this down; it becomes the Sources line.
-- **What the team is measured on.** Ask, or infer from the data, the one or two numbers this team is judged by right now, and rank against those. It beats a generic severity ladder, because "blocks the core loop" is true of half of everything and settles nothing. Pick numbers close enough to the work that some of it genuinely fails to move them: if every item maps to the metric, the metric is too high up to sort anything, and a company-level number like revenue always does this.
+- **What the team is measured on.** Ask, or infer from the data, the one or two numbers this team is judged by right now, and rank against those. It beats a generic severity ladder, because "blocks the core loop" is true of half of everything and settles nothing. Pick numbers close enough to the work that some of it genuinely fails to move them: if every item maps to the metric, the metric is too high up to sort anything, and a company-level number like revenue always does this. Two things outrank the metric and belong at the top whatever the numbers say: someone paying is blocked, and trust is breaking (data lost, a promise broken, a person told something untrue). Ranking by metric is how you sort the ordinary majority, not a reason to bury those.
 - **What that number actually counts.** A named metric is rarely a defined one, and three things decide what it means. Settle them from the data, ask, or state the reading you used so the reader can overrule it.
   - *The unit.* Is one delivery with five parts, three of them right, a success or a failure? Counting parts and counting deliveries produce different orders of work.
   - *Silent substitution.* When the system quietly supplies something else and reports success, does that count as success? Note that this is two failures, not one: the substitution, and the not saying. A team can decide to allow the first while never allowing the second.
@@ -129,7 +129,9 @@ contain, the counting unit if it is not obvious, coverage gaps.]
 ## Already handled
 [One line each for things the input shows as fixed or actively being fixed, so the reader
 can see they were read and set aside rather than missed. No analysis; if one of them
-needs analysis it belongs in Patterns instead.]
+needs analysis it belongs in Patterns instead. A thing belongs here only when nothing is
+left for anyone to do. A shipped fix whose affected person still has not been told is not
+handled, it is half handled, and the remaining half is an action.]
 
 ## Excluded
 [What was filtered out, with counts and reasons, and which calls were close. Skip when
