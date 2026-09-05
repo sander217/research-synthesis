@@ -1,0 +1,45 @@
+{
+  "execution_date_utc": "2026-09-05",
+  "base_commit": "43c4188dda3733128488f59947bdf2f17d929758",
+  "model_identifier": "not exposed by this runner; inherited session model",
+  "runs_per_case": 1,
+  "context": "fresh agents received only one task and the skill with its references; no rubric or expected answer",
+  "runs": [
+    {
+      "case": "01-time-and-provenance",
+      "input_sha256": "9d95d9a6f9c5eae154f9d36942c534f965902e2ae6dbbcf0b7ad8fc5d3336584",
+      "response_sha256": "8ab8fdf7453476ed05fa34f1072503ba00a3ba5b5290da415c232facdfac6d64",
+      "instruction_sha256": {
+        "SKILL.md": "e4bdd286021e2e34e6dedf614c61b0c8887a7c26da205305e4c7cf0d32a59a69",
+        "references/evidence-and-time.md": "72404b599a6eda39c60fabece97e569bd59de548d1f4c7976ae0cea8ab2acadc",
+        "references/external-research.md": "ba3baab9814dcf4b6b4945089468c1cc6eda8e1dadaba72f7c49234e3fadc28a",
+        "references/output-formats.md": "0ba71228d86ba0424f2aba50260664c23def5f310473086a2431cd1a3dadaefb"
+      },
+      "source_access": "supplied sources only; task-enforced, tools not disabled"
+    },
+    {
+      "case": "02-preferred-solution-no-web",
+      "input_sha256": "cebade7351a170a6073bf2abe519a2204152bf118a789b751e13ee6e00567b9b",
+      "response_sha256": "44a8816bbadd96185b86b2442909e18da7b5bf6f8882697a679621289bc3279b",
+      "instruction_sha256": {
+        "SKILL.md": "e4bdd286021e2e34e6dedf614c61b0c8887a7c26da205305e4c7cf0d32a59a69",
+        "references/evidence-and-time.md": "72404b599a6eda39c60fabece97e569bd59de548d1f4c7976ae0cea8ab2acadc",
+        "references/external-research.md": "ba3baab9814dcf4b6b4945089468c1cc6eda8e1dadaba72f7c49234e3fadc28a",
+        "references/output-formats.md": "0ba71228d86ba0424f2aba50260664c23def5f310473086a2431cd1a3dadaefb"
+      },
+      "source_access": "supplied sources only; task-enforced, tools not disabled"
+    },
+    {
+      "case": "03-live-waiting-research",
+      "input_sha256": "6f7fc558bb9904b70e5378b0f41281207fefbf4e2a480adc168e6f1c571fe64d",
+      "response_sha256": "68ee5900606d5d3c88c65f48aecf77db965c3c10988c5167c512f602d730c8c0",
+      "instruction_sha256": {
+        "SKILL.md": "e4bdd286021e2e34e6dedf614c61b0c8887a7c26da205305e4c7cf0d32a59a69",
+        "references/evidence-and-time.md": "72404b599a6eda39c60fabece97e569bd59de548d1f4c7976ae0cea8ab2acadc",
+        "references/external-research.md": "ba3baab9814dcf4b6b4945089468c1cc6eda8e1dadaba72f7c49234e3fadc28a",
+        "references/output-formats.md": "0ba71228d86ba0424f2aba50260664c23def5f310473086a2431cd1a3dadaefb"
+      },
+      "source_access": "live web enabled"
+    }
+  ]
+}

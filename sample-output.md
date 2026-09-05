@@ -1,53 +1,54 @@
-# Synthesis: support channel feedback · 2026-08-28
-Input: 8 messages, single-day sample. N counts messages.
-Sources: 6 unique users writing into a support channel, so this corpus holds people with problems and the occasional volunteered compliment. It cannot tell you what the silent majority experiences.
+# Synthesis: supplied support messages (synthetic)
 
-## TL;DR
-- A possible double-charge (Customer F) is a churn threat and needs a same-day reply. Blocks money.
-- Users cannot tell whether generation is running, failed, or finished; the same person hit it twice in one session. Blocks the core loop.
-- Edge quality problems trace to input photos, not the model; a user discovered the fix themselves and it should be productized.
+**Decision frame:** Identify worthwhile investigation and design directions. This framing is inferred; the input supplies no proposed solution, business metric, or decision deadline.
 
-## Patterns
+**Coverage:** All 8 messages from 6 distinct synthetic speakers were reviewed; none excluded. This selected support-channel sample includes problems and praise, but cannot establish prevalence or represent all customers. Message counts below describe corpus coverage, not independent users or incidents. The two quality messages describe one person's issue and subsequent workaround; the two messages from another person concern different tasks.
 
-### 1. Billing error suspected  (N=1/8 messages · 1 reporter · severity: blocks money · single-source)
-- FACT: One customer reports being charged twice and threatens to cancel.
-- Evidence: "charged twice this month?? pls check, invoice attached. if this isn't fixed we're cancelling" (msg-06)
-- INTERPRETATION: Regardless of whether the charge is real, response speed now determines retention.
-- HYPOTHESIS: A duplicate charge usually means either a retried payment call or a subscription created twice. Nothing in this channel can tell them apart; the billing log can.
+**Time and product context:** Event dates, collection dates, product versions, session relationships, and current fix status are unknown. “This month” has no known calendar anchor. The workaround follows its author's initial quality complaint; no other event sequence is established. This example uses supplied material only; no web research was performed and no external evidence is assessed.
 
-### 2. No feedback during and after generation  (N=2/8 messages · 1 reporter · severity: blocks core loop · single-source)
-- FACT: One user closed the tab mid-generation because status was unclear; the same user later could not find the preview after saving.
-- Evidence: "i couldnt tell if it crashed or was still working so i closed the tab" (msg-01)  ·  "where did the preview go after i hit save. i kept looking for it" (msg-07)
-- INTERPRETATION: These are not two UI gaps but one: the product never shows its own state. Both moments sit at the point of highest user investment, which is why one produced abandonment and the other confusion. Adding a spinner to generation alone would leave the post-save half intact and the complaint would come back wearing different words.
+## Decision brief
 
-### 3. Edge artifacts are an input problem users solve themselves  (N=2/8 messages · 1 reporter · severity: annoyance · single-source)
-- FACT: A user hit white edges four times, then discovered plain-background photos fix it, and asked us to tell people.
-- Evidence: "white edges around it? looks cheap. tried 4 times same thing" (msg-03)  ·  "if I upload a photo with plain background it works better. you should tell people that" (msg-04)
-- INTERPRETATION: A workaround this clean is a free spec. Guidance at upload time (or an automatic background check) converts four failed attempts into one.
+- Investigate the reported duplicate charge promptly. A cancellation threat is explicit; an actual billing error is unverified.
+- Clarify the generation and post-save experiences separately. One speaker reports both problems, but neither a shared cause nor a shared session is established.
+- Investigate repeated asset-quality attempts and multi-client delivery work. Both contain concrete effort or workflow signals; neither establishes the effectiveness of a proposed fix.
 
-### 4. The waiting-game pattern is working  (N=1/8 messages · 1 reporter · positive · single-source)
-- FACT: Unprompted praise for playing the template game during generation.
-- Evidence: "the loading screen where you can play the old game while waiting is genius lol" (msg-08)
-- INTERPRETATION: Keep and extend; this is the mechanism masking Pattern 2's wait, but it does not fix the missing status signal.
+## Findings and implications
 
-Logged, not synthesized: bulk export request (msg-05) is a solution prescription; the underlying problem is "agency-type customers deliver to many clients manually." Needs its own investigation before building.
+Every problem below is reported by one speaker. Confidence in the existence of these *reports* is high; frequency in the customer population is unknown. Confidence in root causes and solution effectiveness is low or unassessed.
 
-## Actions
+| Finding | Reported fact and source | Interpretation and decision implication |
+|---|---|---|
+| Possible duplicate charge threatens this customer's continuation | 1/8 messages, 1 speaker: reports two charges and conditional cancellation (msg-06). The referenced invoice is not supplied. | Potential financial harm makes verification time-sensitive. Check the transaction history before attributing a cause or promising a correction. |
+| Unclear generation status preceded leaving the tab | 1/8 messages, 1 speaker: says they could not tell whether generation crashed and closed the tab (msg-01). | The person needed enough information to choose whether to wait or recover. Inspect actual job states and prototype truthful status feedback; duration and job outcome are unknown. |
+| A saved preview was difficult to find | 1/8 messages, 1 speaker: reports searching for the preview after saving (msg-07). | Investigate retrieval and save confirmation. Missing visibility is plausible; data loss and a connection to the generation problem are unproven. |
+| One person reports repeated edge artifacts and a partial workaround | 2/8 messages, 1 speaker: reports four attempts with white edges, then says a plain background works better (msg-03–04). | Input guidance is a candidate to evaluate. Improvement does not prove elimination of artifacts, establish a root cause, or rule out a model problem. |
+| Delivering to multiple clients requires repetitive downloads | 1/8 messages, 1 speaker: describes individual downloads for 12 clients taking their morning and requests bulk export (msg-05). | The useful research unit is completing client delivery. Observe download, naming, checking, and sharing before deciding whether batching addresses the costly part. Twelve clients are not twelve independent participants. |
+| Two positive experiences identify things worth preserving in exploration | 2/8 messages, 2 speakers: one reports making a team-offsite game in 10 minutes (msg-02); another praises playing an old game while waiting (msg-08). | Preserve awareness of quick creation and enjoyable waiting when exploring changes. These distinct reports do not prove typical creation speed, reduced abandonment, or that the waiting game works for everyone. |
 
-**Do now**
-- Reply to Customer F today and audit the invoice. Success signal: resolution message sent within 24h, no cancellation.
-- Give generation a single visible state (running / failed / done) and a persistent path back to the preview after save, per Pattern 2. Success signal: mid-generation tab-close rate drops and post-save "where did it go" messages stop.
+The rows cover msg-01 through msg-08 exactly once (1 + 1 + 1 + 2 + 1 + 2 = 8). Speakers overlap across rows; their counts must not be added to infer reach. These are groupings by task and experience, not established common causes.
 
-**Test first**
-- Upload-time photo guidance or an automatic background-quality check, per Pattern 3. Prototype the hint first; decision criterion: retry count per successful asset drops below 2.
+## Next research and design decisions
 
-**Watch**
-- Count how many paying customers share the agency delivery pattern behind msg-05 before scoping bulk export.
+**Investigate now:** Have the payments owner inspect the reported charges and communicate verified findings to the affected customer, subject to the team's usual authorization. Resolution means the ledger is reconciled and any confirmed error corrected; a response alone cannot guarantee retention. No message is sent by this synthesis.
 
-## Open questions
-- Is the double charge an isolated incident or systemic? Needs a billing log audit, not more feedback. Whoever owns payments can answer it today.
-- How common is the multi-client agency workflow? One vocal customer is not a segment.
-- Every pattern here is single-source in an 8-message sample. Treat all of them as leads to verify, not as trends.
+**Test candidate directions:**
+
+- Generation: compare understandable job status and recovery options against the current experience. Observe whether people correctly identify running, completed, and failed jobs and know their next action. A tab close can also mean leaving safely; it is not automatically failure.
+- Saved preview: observe saving and reopening an output. Compare a visible return path only if retrieval is the issue. Keep this evaluation separate from generation status until evidence connects them.
+- Asset quality: reproduce the reported behavior with matched inputs and record model/version settings before testing an upload hint. Compare artifact quality, usable-output rate, and attempts with guidance versus the current flow. No numerical improvement target is justified by this sample.
+- Client delivery: observe an end-to-end delivery task, including any naming and verification work. Compare batching with other directions discovered in that work; assess total task time and delivery errors, not just clicks.
+
+**Missing decision inputs:** Confirm which product versions and dates these reports describe, what has already changed, the actual billing outcome, and how the tasks appear outside this selected sample. Define any metric's numerator, denominator, time window, and success event before using it to prioritize. No implementation priority among the ordinary usability issues is established here.
 
 ## Quote bank
-Pattern 1: msg-06. Pattern 2: msg-01, msg-07. Pattern 3: msg-03, msg-04. Pattern 4: msg-08. Logged request: msg-05. Positive, uncategorized: msg-02.
+
+Exact message text from the synthetic input; source IDs retain traceability without repeating handles.
+
+- **msg-01:** “generation took forever and i couldnt tell if it crashed or was still working so i closed the tab”
+- **msg-02:** “Love the pacman template!! made one for my team offsite in 10 min”
+- **msg-03:** “why does my character come out with white edges around it? looks cheap. tried 4 times same thing”
+- **msg-04:** “ok update, if I upload a photo with plain background it works better. you should tell people that”
+- **msg-05:** “We need bulk export. Right now I download games one by one for our 12 clients, takes my morning”
+- **msg-06:** “charged twice this month?? pls check, invoice attached. if this isn't fixed we're cancelling”
+- **msg-07:** “also where did the preview go after i hit save. i kept looking for it”
+- **msg-08:** “the loading screen where you can play the old game while waiting is genius lol I almost didn't want mine to finish”
